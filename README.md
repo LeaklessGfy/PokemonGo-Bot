@@ -14,16 +14,13 @@ The Pokemon Go Bot, baking with community.
 ## Project Chat
 We use [Slack](https://slack.com) as a web chat. [Click here to join the chat!](https://pokemongo-bot.herokuapp.com)
 ## Breaking Changes
-You need modify config.json (config.json.example for example)
-then pokecli.py --config config.json
-## CI ERROR Need Help
-Our CI check turn lots of lint error, please help to fix. 
-Commit comment set to 'CI FIX, File: ' 
-## About dev/stable/master Branch
-Dev branch has most up to date feature and even everyone handle the part well, still, will have broken changes. Your test contribute and PR for fix are warm welcome. 
-Stable branch is better than dev branch. Setup with milestone tag.  
-Master branch is the thing you familiar.  
-No PR on stable/master branch to keep things easier.  
+You need modify config.json (config.json.example for example) then pokecli.py --config config.json 
+Please clean up your old clone if you have issue, and following the [install instruction](https://github.com/PokemonGoF/PokemonGo-Bot#installation).
+
+## About dev/master Branch
+Dev branch has the most up-to-date features, but be aware that there might be some broken changes. Your contribution and PR for fixes are warm welcome. 
+Master branch is the stable branch.  
+No PR on master branch to keep things easier.  
 ## Table of Contents
 - [Project Chat](#project-chat)
 - [Features](#features)
@@ -48,7 +45,7 @@ No PR on stable/master branch to keep things easier.
  * Limit the step to farm specific area for pokestops
  * Use the ball you have to catch, don't if you don't have
  * Rudimentary IV Functionality filter
- * Auto switch mode(Full of item then catch, no ball useable then farm)
+ * Auto switch mode (Full of item then catch, no ball useable then farm)
  * Ignore certain pokemon filter
  * Use superior ball types when necessary
  * When out of normal pokeballs, use the next type of ball unless there are less than 10 of that type, in which case switch to farm mode
@@ -85,10 +82,10 @@ No PR on stable/master branch to keep things easier.
 - Linux: `apt-get install python-protobuf`
 
 ### Note on branch
-Please keep in mind that master is not always up to date whereas 'dev' is. In the installation note below change `master` to `dev` if you want to get the latest version.
+Please keep in mind that master is not always up-to-date whereas 'dev' is. In the installation note below change `master` to `dev` if you want to get and use the latest version.
 
 ### Installation Linux
-(change master to dev for the newer version)
+(change master to dev for the latest version)
 
 ```
 $ git clone -b master https://github.com/PokemonGoF/PokemonGo-Bot  
@@ -99,7 +96,7 @@ $ git submodule update
 ```
 
 ### Installation Mac
-(change master to dev for the newer version)
+(change master to dev for the latest version)
 
 ```
 $ git clone -b master https://github.com/PokemonGoF/PokemonGo-Bot  
@@ -112,7 +109,7 @@ $ git submodule update
 ```
 
 ### Installation Windows
-(change master to dev for the newer version)
+(change master to dev for the latest version)
 
 On Windows, you will need to install PyYaml through the installer and not through requirements.txt.
 
@@ -131,7 +128,7 @@ $ pip install PyYAML-3.11-cp27-cp27m-win32.whl
 // (replace PyYAML-3.11-cp27-cp27m-win32.whl with PyYAML-3.11-cp27-cp27m-win_amd64.whl
 ```
 
-After this, just do :
+After this, just do:
 
 ```
 $ git clone -b master https://github.com/PokemonGoF/PokemonGo-Bot  
@@ -167,20 +164,20 @@ This project uses Google Maps. There's one map coupled with the project, but as 
 6. After the code done, will update here how to replace.
 
 ### Python possible bug
-If you encounter problems with the module `ssl` and it function `_create_unverified_context`. Just comment it. (Solution available in Python 2.7.11)
-To do it follow instruction below :
+If you encounter problems with the module `ssl` and it's function `_create_unverified_context`, just comment it. (Solution available in Python 2.7.11)
+In order to comment out the function and the module, please follow the instructions below:
 - edit `pokecli.py`
 - put `#` before `if` (line 43) and `ssl` (line 44)
 - save it
 
-Please keep in mind that this fix is necessary only if your python version don't have the `_create_unverified_context` argument in ssl module.
+Please keep in mind that this fix is only necessary if your python version don't have the `_create_unverified_context` argument in the ssl module.
 
 ## Update
 To update your project do: `git pull` in the project folder
 
-## Usage (up to date)
+## Usage (up-to-date)
 	1/ copy `config.json.example` to `config.json` and `release_config.json.example` to `release_config.json`.
-	2/ Edit `config.json` and replace `auth_service`, `username`, `password`, `location` and `gmapkey` with your parameters (others keys are optional, check `Advance Configuration` below)
+	2/ Edit `config.json` and replace `auth_service`, `username`, `password`, `location` and `gmapkey` with your parameters (other keys are optional, check `Advance Configuration` below)
 
 ## Advance Configuration
 - `max_steps` :
@@ -192,7 +189,7 @@ To update your project do: `git pull` in the project folder
 - `location_cache` : 
 - `distance_unit` :
 - `item_filter` :
-- `evolve_all` : Set to true to evolve pokemon if possible
+- `evolve_all` : Set to true to evolve pokemons if possible
 
 ### Evolve All Configuration
     By setting the `evolve_all` attribute in config.json, you can instruct the bot to automatically
@@ -267,7 +264,7 @@ Try to generate an [app password](!https://support.google.com/accounts/answer/18
 ```
 -p "<your-app-password>"
 ```
-This error is mostly occurs for those who using 2 factor authentication but either way for the purpose of security would be nice to have a separate password for the bot app.
+This error mostly occurs for those who are using 2 factor authentication, but either way, for the purpose of security it would be nice to have a separate password for the bot app.
 
 
 ### FLEE
@@ -285,7 +282,7 @@ Create the following filter
 ```
 ./data/catch-ignore.yml
 ```
-Its a yaml file with a list of names so make it look like
+It's a yaml file with a list of names so make it look like
 ```
 ignore:
   - Pidgey
@@ -343,17 +340,9 @@ If using multiple usernames format like this:
  
 -------
 ## Credits
+- [pokemongof](https://github.com/PokemonGoF/PokemonGo-Bot) Fork from there
 - [tejado](https://github.com/tejado) many thanks for the API
 - [Mila432](https://github.com/Mila432/Pokemon_Go_API) for the login secrets
 - [elliottcarlson](https://github.com/elliottcarlson) for the Google Auth PR
 - [AeonLucid](https://github.com/AeonLucid/POGOProtos) for improved protos
 - [AHAAAAAAA](https://github.com/AHAAAAAAA/PokemonGo-Map) for parts of the s2sphere stuff
-
-
-## Donation
-
-Bitcoin Address:  1PJMCx9NNQRasQYaa4MMff9yyNFffhHgLu
-
-<p align="center">
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WQUXDC54W6EVY"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"></a>
-</p>
